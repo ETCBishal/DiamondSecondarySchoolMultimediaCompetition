@@ -4,7 +4,6 @@ from django.contrib import messages
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from .models import Room, Message
-from django.db.models import Count
 
 
 def delete_rooms(request):
@@ -43,6 +42,7 @@ def signupUser(request):
         email = request.POST.get('email')
         pass1 = request.POST.get('pass1')
         pass2 = request.POST.get('pass2')
+
 
         if pass1 == pass2:  # confirming the password
             user = User.objects.create_user(
